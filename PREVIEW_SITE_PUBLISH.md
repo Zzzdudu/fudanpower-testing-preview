@@ -43,6 +43,15 @@ If GitHub asks you to log in, use your own account.
 
 ## Enable GitHub Pages
 
+You can also use the helper script after creating the GitHub repository:
+
+```powershell
+cd D:\CodexProjects\fudanpower-testing-preview
+.\publish-preview.ps1 -GitHubUsername YOUR_GITHUB_USERNAME
+```
+
+The script updates `_config.yml`, points `origin` to your repository, commits the config change if needed, and pushes `master`.
+
 In the new repository:
 
 `Settings -> Pages -> Build and deployment`
@@ -73,4 +82,3 @@ Common fields:
 - `devices`: equipment list
 - `charging`: charging explanation
 - `notice`: safety and compliance notes
-
