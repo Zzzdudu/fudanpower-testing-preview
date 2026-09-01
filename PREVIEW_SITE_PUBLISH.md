@@ -58,9 +58,7 @@ In the new repository:
 
 Choose:
 
-- Source: `Deploy from a branch`
-- Branch: `master`
-- Folder: `/ (root)`
+- Source: `GitHub Actions`
 
 After GitHub Pages finishes building, open:
 
