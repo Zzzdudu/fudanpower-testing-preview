@@ -1,0 +1,126 @@
+# Edit this file to update the public testing services page.
+# After editing on GitHub, commit the change and GitHub Pages will rebuild the site.
+
+platform:
+  title: "Third-Party Device and Materials Testing Services"
+  title_cn: "第三方器件与材料测试服务"
+  subtitle: "Semiconductor Device & Materials Testing Services"
+  description: "面向半导体器件、功率器件、光电器件和铁电材料研究需求，提供高压大电流、高精度 I-V、C-V、变温、光照及铁电相关测试服务。服务采用预约制，费用按照学校/学院批准的开放共享测试服务标准执行。"
+  hero_image: "/images/testing-services/lab-testing-hero.png"
+  contact_email: "wjliu@fudan.edu.cn"
+  contact_name: "Prof. Wenjun Liu"
+  contact_unit: "School of Microelectronics, Fudan University"
+  open_to: "Universities / Research institutes / R&D organizations"
+  service_note: "All tests require prior appointment and feasibility review. Charging standards and invoicing should follow the approved rules of the university or school."
+
+stats:
+  - value: "10 kV"
+    label: "Ultra-high-voltage DC/pulse capability"
+  - value: "1500 A"
+    label: "Pulse high-current capability"
+  - value: "1 MHz"
+    label: "C-V test frequency upper limit"
+  - value: "150℃"
+    label: "Probe-station temperature upper limit"
+
+categories:
+  - id: "all"
+    name: "All Equipment"
+  - id: "power"
+    name: "Power Device Testing"
+  - id: "precision"
+    name: "Precision Electrical Testing"
+  - id: "cv"
+    name: "C-V / Capacitance Testing"
+  - id: "opto"
+    name: "Optoelectronic & Temperature Testing"
+  - id: "ferro"
+    name: "Ferroelectric Materials Testing"
+
+devices:
+  - id: "b1505a"
+    name: "Keysight B1505A Power Device Analyzer"
+    name_cn: "Keysight B1505A 功率器件分析仪"
+    model: "B1505A with UHCU / UHVU / C-V module"
+    status: "Available by appointment"
+    image: "/images/testing-services/lab-testing-hero.png"
+    image_note: "Equipment photo forthcoming"
+    tags: ["power", "cv", "opto"]
+    summary: "用于功率器件 I-V、C-V、高压、大电流、变温及光照条件下的电学测试。"
+    intro:
+      - "适用于功率器件 I-V、C-V、高压、大电流及相关电学测试。可结合变温探针台和光电测试光源，开展室温至 150℃、指定紫外光照条件下的器件测试。"
+      - "预约时建议说明器件类型、样品结构、电极/封装形式、最大预期电压和电流、是否允许击穿测试，以及需要原始数据还是正式测试报告。"
+    specifications:
+      - "N1265A 超大电流单元 UHCU：1500 A/60 V 脉冲，22.5 kW 峰值功率；±500 A/60 V 脉冲，7.5 kW 峰值功率。"
+      - "N1268A 超高电压单元 UHVU：10 kV/10 mA 直流；10 kV/20 mA 脉冲。"
+      - "N1272 电容测试模块：1 kHz-1 MHz C-V 测试。"
+      - "变温探针台：室温至 150℃，托盘可加压，可测垂直器件。"
+      - "光电测试光源：254 nm、310 nm、350 nm、380 nm。"
+
+  - id: "b1500a"
+    name: "Keysight B1500A Semiconductor Device Parameter Analyzer"
+    name_cn: "Keysight B1500A 半导体器件参数分析仪"
+    model: "B1500A"
+    status: "Available by appointment"
+    image: "/images/testing-services/lab-testing-hero.png"
+    image_note: "Equipment photo forthcoming"
+    tags: ["precision"]
+    summary: "适用于半导体器件精密参数测试，可开展亚 pA 级高精度 I-V 测试。"
+    intro:
+      - "适用于半导体器件精密电学参数测试，重点用于低电流、低泄漏和高灵敏度 I-V 表征。"
+      - "预约时建议说明器件结构、测试端口、电流量级、扫描范围、步进方式和数据格式要求。"
+    specifications:
+      - "支持亚 pA 级高精度 I-V 测试。"
+      - "适合半导体器件、薄膜结构、光电器件和低泄漏样品的参数分析。"
+      - "具体通道配置、探针台适配和测试边界以预约评估为准。"
+
+  - id: "radiant"
+    name: "Radiant Precision Premier II Ferroelectric Tester"
+    name_cn: "Radiant Precision Premier II 铁电材料测试仪"
+    model: "Precision Premier II"
+    status: "Available by appointment"
+    image: "/images/testing-services/lab-testing-hero.png"
+    image_note: "Equipment photo forthcoming"
+    tags: ["ferro"]
+    summary: "用于铁电材料及相关器件的电学测试，具体项目和条件需预约确认。"
+    intro:
+      - "适用于铁电材料及相关器件的电学测试，可根据样品结构和电极条件设计测试方案。"
+      - "预约时建议说明材料体系、薄膜/块体形态、电极面积、厚度、预期电压范围和是否需要循环/保持类测试。"
+    specifications:
+      - "可用于铁电材料与器件相关电学表征。"
+      - "具体 P-E 回线、漏电、疲劳、保持、脉冲响应等项目需根据样品情况确认。"
+      - "测试电压、频率、波形和数据处理方式以双方确认的测试方案为准。"
+
+workflow:
+  - title: "1. Email Request"
+    text: "Submit sample information, expected test items, required conditions, and contact details."
+  - title: "2. Feasibility Review"
+    text: "The group reviews instrument capability, safety boundary, sample compatibility, and schedule."
+  - title: "3. Quote and Approval"
+    text: "The service plan, data deliverables, timeline, and fees are confirmed according to approved university rules."
+  - title: "4. Testing and Delivery"
+    text: "Samples are delivered or tested on site; raw data, test conditions, and agreed results are returned."
+
+request_fields:
+  - "Applicant name, affiliation, research group/advisor, email, and phone number."
+  - "Sample type, structure, quantity, size, electrode layout, and packaging form."
+  - "Expected test items and conditions, including voltage, current, temperature, illumination wavelength, and frequency range."
+  - "Required deliverables: raw data, plotted figures, or formal test report."
+  - "Confidentiality, hazardous sample, contamination, or special operating requirements."
+
+charging:
+  summary: "Testing service fees follow the approved open-sharing testing service standards of the university or school. The final fee depends on test items, sample quantity, test conditions, instrument time, consumables, data processing, and report requirements."
+  items:
+    - name: "Instrument time"
+      basis: "Instrument operation, maintenance, depreciation, site, and utility costs."
+    - name: "Technical service"
+      basis: "Operator time, test-plan design, test complexity, and data-quality review."
+    - name: "Consumables"
+      basis: "Probe tips, fixtures, conductive paste, sample holders, and special consumables."
+    - name: "Report preparation"
+      basis: "Formal signed/stamped report, English report, or additional figure/data processing if approved."
+
+notice:
+  - "High-voltage, high-current, temperature-dependent, and optical testing may cause device breakdown or sample failure."
+  - "The group does not accept illegal, confidential, hazardous, corrosive, or contamination-prone samples unless the responsible platform has completed the required safety and compliance review."
+  - "Payment, invoicing, contracts, and revenue management should follow the university or school procedures. Personal collection of service fees is not recommended."

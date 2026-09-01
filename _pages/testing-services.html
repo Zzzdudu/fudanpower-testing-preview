@@ -1,0 +1,207 @@
+---
+permalink: /testing-services/
+title: "Testing Services"
+layout: default
+---
+
+{% assign svc = site.data.testing_services %}
+
+<section class="testing-platform">
+  <section class="testing-hero" style="background-image: linear-gradient(90deg, rgba(9,31,73,.88), rgba(9,31,73,.58), rgba(9,31,73,.08)), url('{{ svc.platform.hero_image | relative_url }}');">
+    <div class="testing-hero__inner">
+      <p class="testing-hero__eyebrow">{{ svc.platform.subtitle }}</p>
+      <h1>{{ svc.platform.title_cn }}</h1>
+      <p class="testing-hero__lead">{{ svc.platform.description }}</p>
+      <div class="testing-stats" aria-label="Testing capability overview">
+        {% for stat in svc.stats %}
+          <div class="testing-stat">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="testing-layout">
+    <aside class="testing-sidebar" aria-label="Equipment categories">
+      <h2>设备展示</h2>
+      <nav>
+        {% for category in svc.categories %}
+          <a href="#category-{{ category.id }}" data-filter="{{ category.id }}" class="{% if forloop.first %}is-active{% endif %}">{{ category.name }}</a>
+        {% endfor %}
+      </nav>
+    </aside>
+
+    <div class="testing-main">
+      <div class="testing-heading">
+        <div>
+          <p class="testing-breadcrumbs">Home &gt; Equipment &gt; Testing Services</p>
+          <h2>设备列表</h2>
+        </div>
+        <div class="testing-tools">
+          <input id="testing-search" type="search" placeholder="Search equipment" aria-label="Search equipment">
+          <button type="button" data-filter="all" class="is-active">All</button>
+          <button type="button" data-filter="power">High Voltage / Current</button>
+          <button type="button" data-filter="precision">Precision I-V</button>
+          <button type="button" data-filter="ferro">Ferroelectric</button>
+        </div>
+      </div>
+
+      <div class="testing-cards" id="equipment-list">
+        {% for device in svc.devices %}
+          <article class="testing-card" data-tags="{{ device.tags | join: ' ' }}" data-device="{{ device.id }}" id="device-{{ device.id }}">
+            <div class="testing-card__image" style="background-image: url('{{ device.image | relative_url }}');">
+              <span>{{ device.image_note }}</span>
+            </div>
+            <div class="testing-card__body">
+              <dl>
+                <dt>设备名称：</dt>
+                <dd>{{ device.name_cn }}</dd>
+                <dt>Model:</dt>
+                <dd>{{ device.model }}</dd>
+                <dt>Status:</dt>
+                <dd>{{ device.status }} <span class="testing-status">可预约</span></dd>
+                <dt>设备简介：</dt>
+                <dd>{{ device.summary }}</dd>
+              </dl>
+            </div>
+            <div class="testing-card__actions">
+              <a href="mailto:{{ svc.platform.contact_email }}?subject=Testing%20Service%20Inquiry">Inquiry</a>
+              <a href="mailto:{{ svc.platform.contact_email }}?subject=Testing%20Service%20Request">Book</a>
+              <a href="#detail-{{ device.id }}">Details</a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      {% for device in svc.devices %}
+        <section class="testing-detail" id="detail-{{ device.id }}">
+          <h2>{{ device.name_cn }}</h2>
+          <div class="testing-detail__grid">
+            <div>
+              <section class="testing-block">
+                <h3>设备简介</h3>
+                <div>
+                  {% for paragraph in device.intro %}
+                    <p>{{ paragraph }}</p>
+                  {% endfor %}
+                </div>
+              </section>
+
+              <section class="testing-block">
+                <h3>技术指标</h3>
+                <div>
+                  <ul class="testing-specs">
+                    {% for item in device.specifications %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </section>
+            </div>
+
+            <aside class="testing-contact">
+              <h3>设备负责人</h3>
+              <dl>
+                <dt>Contact:</dt>
+                <dd>{{ svc.platform.contact_name }}</dd>
+                <dt>Email:</dt>
+                <dd><a href="mailto:{{ svc.platform.contact_email }}">{{ svc.platform.contact_email }}</a></dd>
+                <dt>Unit:</dt>
+                <dd>{{ svc.platform.contact_unit }}</dd>
+                <dt>Open to:</dt>
+                <dd>{{ svc.platform.open_to }}</dd>
+                <dt>Charging:</dt>
+                <dd>By approved standards or confirmed test plan</dd>
+              </dl>
+              <a class="testing-mail" href="mailto:{{ svc.platform.contact_email }}?subject=Testing%20Service%20Request">Email for Appointment</a>
+            </aside>
+          </div>
+        </section>
+      {% endfor %}
+
+      <section class="testing-block" id="guide">
+        <h3>预约需提供的信息</h3>
+        <div>
+          <ul class="testing-specs">
+            {% for item in svc.request_fields %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+
+      <section class="testing-block" id="process">
+        <h3>服务流程</h3>
+        <div class="testing-steps">
+          {% for step in svc.workflow %}
+            <div>
+              <strong>{{ step.title }}</strong>
+              <p>{{ step.text }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="testing-block" id="charging">
+        <h3>收费说明</h3>
+        <div>
+          <p>{{ svc.charging.summary }}</p>
+          <div class="testing-fees">
+            {% for item in svc.charging.items %}
+              <div>
+                <strong>{{ item.name }}</strong>
+                <p>{{ item.basis }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="testing-notice">
+        {% for item in svc.notice %}
+          <p>{{ item }}</p>
+        {% endfor %}
+      </section>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".testing-card"));
+    var filters = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
+    var search = document.getElementById("testing-search");
+
+    function applyFilter(filter) {
+      var query = (search && search.value ? search.value : "").toLowerCase().trim();
+
+      filters.forEach(function (control) {
+        control.classList.toggle("is-active", control.getAttribute("data-filter") === filter);
+      });
+
+      cards.forEach(function (card) {
+        var tags = card.getAttribute("data-tags") || "";
+        var text = card.textContent.toLowerCase();
+        var filterMatches = filter === "all" || tags.indexOf(filter) !== -1;
+        var searchMatches = !query || text.indexOf(query) !== -1;
+        card.hidden = !(filterMatches && searchMatches);
+      });
+    }
+
+    filters.forEach(function (control) {
+      control.addEventListener("click", function (event) {
+        event.preventDefault();
+        applyFilter(control.getAttribute("data-filter"));
+      });
+    });
+
+    if (search) {
+      search.addEventListener("input", function () {
+        var active = document.querySelector(".testing-tools .is-active") || document.querySelector(".testing-sidebar .is-active");
+        applyFilter(active ? active.getAttribute("data-filter") : "all");
+      });
+    }
+  }());
+</script>

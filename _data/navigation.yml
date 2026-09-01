@@ -8,6 +8,9 @@ main:
     
   - title: "Members"
     url: /members/
+
+  - title: "Testing Services"
+    url: /testing-services/
   
   - title: "Openings"
     url: /openings/
